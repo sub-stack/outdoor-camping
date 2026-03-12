@@ -1,0 +1,687 @@
+﻿<!doctype html>
+<html lang="zh-HK" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>野森宿營 | 走進山野，住進更輕的日常</title>
+
+    <!-- Google Fonts: Noto Serif TC (Headings) & Noto Sans TC (Body) & Ma Shan Zheng (Calligraphy) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=Noto+Sans+TC:wght@400;500;600&family=Noto+Serif+TC:wght@500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Phosphor Icons for elegant minimalist icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <!-- Tailwind config + custom interactions -->
+    <script src="script.js"></script>
+    <!-- Tailwind CSS (CDN with Custom Config) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              forest: "#4F6B5A",
+              moss: "#7E9384",
+              sand: "#C9B59A",
+              mist: "#F6F4EE",
+              stone: "#E9E6DF",
+              ink: "#1F1F1B",
+              olive: "#667168",
+            },
+            fontFamily: {
+              serif: ['"Noto Serif TC"', "serif"],
+              sans: ['"Noto Sans TC"', "sans-serif"],
+              calligraphy: [
+                '"Ma Shan Zheng"',
+                '"Kaiti TC"',
+                '"BiauKai"',
+                '"Noto Serif TC"',
+                "serif",
+              ],
+            },
+            animation: {
+              float: "float 3s ease-in-out infinite",
+            },
+            keyframes: {
+              float: {
+                "0%, 100%": { transform: "translateY(0)" },
+                "50%": { transform: "translateY(-10px)" },
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body
+    class="font-sans text-ink antialiased selection:bg-forest selection:text-white"
+  >
+    <!-- Navigation -->
+    <nav
+      id="navbar"
+      class="fixed w-full z-50 transition-all duration-300 py-4 px-6 md:px-12 border-b border-transparent"
+    >
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <!-- Brand -->
+        <a
+          href="#hero"
+          class="font-serif text-2xl font-bold tracking-wider text-forest z-50"
+        >
+          野森宿營
+        </a>
+
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex items-center space-x-8">
+          <ul class="flex space-x-8 text-sm font-medium text-ink/80">
+            <li>
+              <a
+                href="#about"
+                class="hover:text-forest transition-colors tracking-widest nav-link"
+                >關於我們</a
+              >
+            </li>
+            <li>
+              <a
+                href="#services"
+                class="hover:text-forest transition-colors tracking-widest nav-link"
+                >服務</a
+              >
+            </li>
+            <li>
+              <a
+                href="#locations"
+                class="hover:text-forest transition-colors tracking-widest nav-link"
+                >地點</a
+              >
+            </li>
+            <li>
+              <a
+                href="#activities"
+                class="hover:text-forest transition-colors tracking-widest nav-link"
+                >活動</a
+              >
+            </li>
+          </ul>
+
+          <!-- Social & CTA -->
+          <div class="flex items-center space-x-4 pl-8 border-l border-stone">
+            <a href="#" class="text-ink/60 hover:text-forest transition-colors"
+              ><i class="ph ph-instagram-logo text-xl"></i
+            ></a>
+            <a href="#" class="text-ink/60 hover:text-forest transition-colors"
+              ><i class="ph ph-facebook-logo text-xl"></i
+            ></a>
+            <a
+              href="#contact"
+              class="bg-forest text-mist px-5 py-2 rounded-full text-sm font-medium hover:bg-moss transition-all duration-300 hover:shadow-md"
+            >
+              立即查詢
+            </a>
+          </div>
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden text-ink z-50 text-2xl focus:outline-none"
+        >
+          <i class="ph ph-list"></i>
+        </button>
+      </div>
+
+      <!-- Mobile Menu Overlay -->
+      <div
+        id="mobile-menu"
+        class="fixed inset-0 bg-mist/95 backdrop-blur-md flex flex-col items-center justify-center space-y-8 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden z-40"
+      >
+        <ul
+          class="flex flex-col items-center space-y-6 text-xl font-serif text-ink"
+        >
+          <li><a href="#about" class="mobile-link">關於</a></li>
+          <li><a href="#services" class="mobile-link">服務</a></li>
+          <li><a href="#locations" class="mobile-link">地點</a></li>
+          <li><a href="#activities" class="mobile-link">活動</a></li>
+          <li><a href="#contact" class="mobile-link text-forest">聯絡</a></li>
+        </ul>
+        <div class="flex space-x-6 mt-8">
+          <a href="#" class="text-ink text-2xl"
+            ><i class="ph ph-instagram-logo"></i
+          ></a>
+          <a href="#" class="text-ink text-2xl"
+            ><i class="ph ph-facebook-logo"></i
+          ></a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header
+      id="hero"
+      class="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden"
+    >
+      <!-- Background Image with Gradient Overlay for readability -->
+      <div class="absolute inset-0 z-0">
+        <img
+          src="https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80"
+          alt="Forest Camping"
+          class="w-full h-full object-cover object-center scale-105 transition-transform duration-[20s] ease-out hover:scale-110"
+        />
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-mist/90 via-mist/60 to-mist/30"
+        ></div>
+      </div>
+
+      <div
+        class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 w-full flex flex-col md:flex-row justify-center items-center gap-12 lg:gap-32 pt-20"
+      >
+        <!-- Left Content: CTA & Subtitle -->
+        <div
+          class="max-w-lg reveal text-center md:text-left order-2 md:order-1 mt-4 md:mt-0"
+        >
+          <p
+            class="text-ink mb-6 text-xl md:text-2xl tracking-widest font-serif font-bold text-glow"
+          >
+            香港近郊戶外生活
+          </p>
+          <p
+            class="text-ink/90 text-lg md:text-xl leading-relaxed mb-8 font-medium text-glow"
+          >
+            離開石屎森林，走進更柔和的生活方式。我們提供高質感的車營與 Glamping
+            體驗，讓大自然成為你週末的歸宿。
+          </p>
+          <a
+            href="#services"
+            class="inline-flex items-center space-x-2 bg-forest text-mist px-8 py-3.5 rounded-full hover:bg-moss transition-all duration-300 group shadow-sm hover:shadow-md"
+          >
+            <span class="tracking-widest text-base">探索營地體驗</span>
+            <i
+              class="ph ph-arrow-right group-hover:translate-x-1 transition-transform"
+            ></i>
+          </a>
+        </div>
+
+        <!-- Right Content: Vertical Main Title -->
+        <div
+          class="order-1 md:order-2 reveal reveal-delay-1 flex justify-center"
+        >
+          <h1
+            class="font-calligraphy text-5xl md:text-6xl lg:text-7xl text-forest font-black leading-snug md:leading-tight vertical-text text-center text-glow"
+          >
+            走進山野，<br class="hidden md:block" />住進更輕的日常。
+          </h1>
+        </div>
+      </div>
+
+      <!-- Scroll Indicator -->
+      <a
+        href="#about"
+        class="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-ink/40 hover:text-forest transition-colors z-10 animate-bounce"
+      >
+        <i class="ph ph-mouse-simple text-3xl"></i>
+      </a>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 md:py-32 bg-mist">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center"
+        >
+          <div class="reveal">
+            <h2
+              class="font-serif text-3xl md:text-4xl text-forest mb-6 tracking-wide"
+            >
+              品牌使命
+            </h2>
+            <h3 class="text-xl text-ink font-medium mb-8 leading-relaxed">
+              不只是轉介平台，<br />我們在香港新界自營質感場地。
+            </h3>
+            <div class="space-y-6 text-olive leading-relaxed">
+              <p>
+                香港人想找一個高質感、乾淨且有品味的露營體驗往往不易。資訊分散、場地質素參差，讓人難以安心放鬆。
+              </p>
+              <p>
+                野森宿營因此誕生。我們親自營運每一個場地，從環境維護到活動企劃，確保每一個細節都符合我們對「自然共存」與「專業安全」的標準。把戶外生活變得更清楚、更有質感、更容易接近。
+              </p>
+            </div>
+          </div>
+          <div class="relative reveal reveal-delay-1">
+            <div class="aspect-[4/5] rounded-2xl overflow-hidden shadow-lg">
+              <img
+                src="https://images.unsplash.com/photo-1517824806704-9040b037703b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Camping Lifestyle"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <!-- Decorative Element -->
+            <div
+              class="absolute -bottom-6 -left-6 w-32 h-32 bg-sand rounded-full -z-10 blur-2xl opacity-50"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 md:py-32 bg-stone/30">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center mb-16 md:mb-24 reveal">
+          <p class="text-sand font-serif tracking-widest mb-3">SERVICES</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-forest">
+            尋找適合你的露營方式
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Service Card 1 -->
+          <div
+            class="bg-mist rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group reveal"
+          >
+            <div class="aspect-[16/10] overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1525811902-f2342640856e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Car Camping"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div class="p-8 md:p-10">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="font-serif text-2xl text-ink">車營 Car Camping</h3>
+                <span
+                  class="bg-forest/10 text-forest text-xs tracking-wider px-3 py-1 rounded-full"
+                  >自帶裝備</span
+                >
+              </div>
+              <p class="text-olive mb-6 leading-relaxed">
+                將愛車直接駛入營位，展開你的專屬戶外天地。提供寬敞平整的草地與完善的基礎水電設施。
+              </p>
+              <ul class="space-y-3 mb-8 text-sm text-ink/80">
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i>
+                  適合有豐富裝備的玩家
+                </li>
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i>
+                  愛車就在身旁，裝卸輕鬆
+                </li>
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i> 寵物友善空間
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="text-forest font-medium text-sm flex items-center hover:text-moss transition-colors"
+              >
+                查詢車營檔期 <i class="ph ph-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+
+          <!-- Service Card 2 -->
+          <div
+            class="bg-mist rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 group reveal reveal-delay-1"
+          >
+            <div class="aspect-[16/10] overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Glamping"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+            </div>
+            <div class="p-8 md:p-10">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="font-serif text-2xl text-ink">豪華露營 Glamping</h3>
+                <span
+                  class="bg-sand/20 text-sand text-xs tracking-wider px-3 py-1 rounded-full"
+                  >免裝備</span
+                >
+              </div>
+              <p class="text-olive mb-6 leading-relaxed">
+                一卡皮箱即可入住的自然體驗。預先設置好的高質感印第安帳或冷氣小木屋，保留野趣同時享受舒適。
+              </p>
+              <ul class="space-y-3 mb-8 text-sm text-ink/80">
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i>
+                  適合新手、情侶與小家庭
+                </li>
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i>
+                  包含寢具、戶外傢俱與基礎炊具
+                </li>
+                <li class="flex items-center">
+                  <i class="ph ph-check text-forest mr-3"></i> 獨立洗浴設施
+                </li>
+              </ul>
+              <a
+                href="#contact"
+                class="text-forest font-medium text-sm flex items-center hover:text-moss transition-colors"
+              >
+                查詢 Glamping 房型 <i class="ph ph-arrow-right ml-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Locations Section -->
+    <section id="locations" class="py-24 md:py-32 bg-mist">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div
+          class="flex flex-col md:flex-row justify-between items-end mb-16 md:mb-20 reveal"
+        >
+          <div>
+            <p class="text-sand font-serif tracking-widest mb-3">LOCATIONS</p>
+            <h2 class="font-serif text-3xl md:text-4xl text-forest">
+              兩大自營場地，不同自然風貌
+            </h2>
+          </div>
+          <p class="text-olive mt-4 md:mt-0 max-w-sm text-sm">
+            均位於香港新界，遠離繁囂。無論你喜歡開闊草原還是隱秘林間，都能找到心之所向。
+          </p>
+        </div>
+
+        <div class="space-y-16">
+          <!-- Location 1 -->
+          <div
+            class="flex flex-col md:flex-row gap-8 md:gap-16 items-center reveal"
+          >
+            <div
+              class="w-full md:w-3/5 aspect-[16/9] rounded-2xl overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1478131143081-80f7f84ca84d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="Yuen Long Camp"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full md:w-2/5">
+              <span
+                class="text-xs font-bold text-sand tracking-widest uppercase mb-2 block"
+                >Site A · 新界西</span
+              >
+              <h3 class="font-serif text-2xl text-ink mb-4">白泥日落營地</h3>
+              <p class="text-olive leading-relaxed mb-6">
+                以廣闊草坪與絕美日落聞名。視野開闊，空間極大，非常適合車營愛好者及帶著寵物奔跑的家庭。
+              </p>
+              <a
+                href="#contact"
+                class="inline-block border-b border-forest text-forest pb-1 text-sm hover:text-moss hover:border-moss transition-colors"
+                >了解場地詳情</a
+              >
+            </div>
+          </div>
+
+          <!-- Location 2 -->
+          <div
+            class="flex flex-col md:flex-row-reverse gap-8 md:gap-16 items-center reveal"
+          >
+            <div
+              class="w-full md:w-3/5 aspect-[16/9] rounded-2xl overflow-hidden"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1533873984035-25970ab07461?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80"
+                alt="Sai Kung Camp"
+                class="w-full h-full object-cover"
+              />
+            </div>
+            <div class="w-full md:w-2/5 md:text-right">
+              <span
+                class="text-xs font-bold text-sand tracking-widest uppercase mb-2 block"
+                >Site B · 新界東</span
+              >
+              <h3 class="font-serif text-2xl text-ink mb-4">西貢秘境之森</h3>
+              <p class="text-olive leading-relaxed mb-6">
+                隱身於茂密樹林之中，充滿日系侘寂感。提供極高私隱度的 Glamping
+                體驗，適合尋求絕對寧靜的情侶或摯友。
+              </p>
+              <a
+                href="#contact"
+                class="inline-block border-b border-forest text-forest pb-1 text-sm hover:text-moss hover:border-moss transition-colors"
+                >了解場地詳情</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities Section -->
+    <section id="activities" class="py-24 md:py-32 bg-forest text-mist">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="text-center mb-16 md:mb-24 reveal">
+          <p class="text-sand font-serif tracking-widest mb-3">LIFESTYLE</p>
+          <h2 class="font-serif text-3xl md:text-4xl text-mist">
+            不只是住宿，而是戶外生活方式
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+          <!-- Activity 1 -->
+          <div class="group cursor-pointer reveal">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative">
+              <div
+                class="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500 z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Outdoor Yoga"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute bottom-6 left-6 z-20">
+                <h3 class="font-serif text-2xl text-mist mb-1 shadow-sm">
+                  晨間戶外瑜伽
+                </h3>
+                <p class="text-mist/80 text-sm">逢週末早上 · 白泥日落營地</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity 2 -->
+          <div class="group cursor-pointer reveal reveal-delay-1">
+            <div class="aspect-[4/3] rounded-2xl overflow-hidden mb-6 relative">
+              <div
+                class="absolute inset-0 bg-ink/20 group-hover:bg-transparent transition-colors duration-500 z-10"
+              ></div>
+              <img
+                src="https://images.unsplash.com/photo-1533174000276-2917ee91fedb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+                alt="Music Carnival"
+                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              />
+              <div class="absolute bottom-6 left-6 z-20">
+                <h3 class="font-serif text-2xl text-mist mb-1 shadow-sm">
+                  星空不插電音樂會
+                </h3>
+                <p class="text-mist/80 text-sm">每月限定一場 · 西貢秘境之森</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-16 text-center reveal">
+          <p class="text-mist/70 text-sm mb-6">
+            我們定期舉辦各式品牌聯乘與戶外企劃。
+          </p>
+          <a
+            href="#contact"
+            class="inline-flex items-center space-x-2 bg-mist text-forest px-8 py-3 rounded-full hover:bg-stone transition-all duration-300 shadow-sm hover:shadow-md"
+          >
+            <span class="tracking-widest text-sm font-medium"
+              >查詢活動安排</span
+            >
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section
+      id="contact"
+      class="py-24 md:py-32 bg-stone/50 relative overflow-hidden"
+    >
+      <!-- Decorative subtle background circles -->
+      <div
+        class="absolute top-0 right-0 w-64 h-64 bg-mist rounded-full blur-3xl opacity-60 -translate-y-1/2 translate-x-1/3"
+      ></div>
+      <div
+        class="absolute bottom-0 left-0 w-96 h-96 bg-sand/20 rounded-full blur-3xl opacity-60 translate-y-1/3 -translate-x-1/3"
+      ></div>
+
+      <div class="max-w-4xl mx-auto px-6 md:px-12 text-center relative z-10">
+        <div class="reveal">
+          <h2 class="font-serif text-3xl md:text-5xl text-forest mb-6">
+            準備好出發了嗎？
+          </h2>
+          <p class="text-olive mb-12 max-w-lg mx-auto leading-relaxed">
+            無論是預約營位、詢問包場資訊，或想了解更多活動細節，我們都很樂意為你安排。
+          </p>
+        </div>
+
+        <div
+          class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 reveal reveal-delay-1"
+        >
+          <a
+            href="#"
+            class="bg-mist p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <i
+              class="ph ph-whatsapp-logo text-3xl text-forest mb-4 group-hover:-translate-y-1 transition-transform"
+            ></i>
+            <h4 class="font-medium text-ink mb-1">WhatsApp 查詢</h4>
+            <p class="text-sm text-olive">+852 9876 5432</p>
+          </a>
+          <a
+            href="tel:+85298765432"
+            class="bg-mist p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <i
+              class="ph ph-phone-call text-3xl text-forest mb-4 group-hover:-translate-y-1 transition-transform"
+            ></i>
+            <h4 class="font-medium text-ink mb-1">致電我們</h4>
+            <p class="text-sm text-olive">+852 9876 5432</p>
+          </a>
+          <a
+            href="mailto:hello@wildforest.hk"
+            class="bg-mist p-8 rounded-2xl shadow-sm hover:shadow-md transition-shadow group"
+          >
+            <i
+              class="ph ph-envelope-simple text-3xl text-forest mb-4 group-hover:-translate-y-1 transition-transform"
+            ></i>
+            <h4 class="font-medium text-ink mb-1">電子郵件</h4>
+            <p class="text-sm text-olive">hello@wildforest.hk</p>
+          </a>
+        </div>
+
+        <p class="text-xs text-olive/70 reveal reveal-delay-2">
+          * 客服服務時間為每日 10:00 -
+          19:00。我們將收集最基本的聯絡資料僅作查詢回覆之用。
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-ink text-mist pt-20 pb-10 border-t border-ink/10">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-12 md:gap-8 mb-16">
+          <!-- Brand Column -->
+          <div class="md:col-span-2">
+            <h2 class="font-serif text-2xl tracking-wider text-mist mb-4">
+              野森宿營
+            </h2>
+            <p class="text-mist/60 text-sm leading-relaxed max-w-xs mb-6">
+              香港新界自營場地。<br />把近郊戶外生活變得更清楚、更有質感、更容易接近。
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-mist/60 hover:text-mist transition-colors"
+                ><i class="ph ph-instagram-logo text-xl"></i
+              ></a>
+              <a href="#" class="text-mist/60 hover:text-mist transition-colors"
+                ><i class="ph ph-facebook-logo text-xl"></i
+              ></a>
+            </div>
+          </div>
+
+          <!-- Links Column -->
+          <div>
+            <h4
+              class="text-sm font-bold tracking-widest uppercase text-sand mb-6"
+            >
+              探索
+            </h4>
+            <ul class="space-y-3 text-sm text-mist/70">
+              <li>
+                <a href="#about" class="hover:text-mist transition-colors"
+                  >關於品牌</a
+                >
+              </li>
+              <li>
+                <a href="#services" class="hover:text-mist transition-colors"
+                  >住宿服務</a
+                >
+              </li>
+              <li>
+                <a href="#locations" class="hover:text-mist transition-colors"
+                  >場地介紹</a
+                >
+              </li>
+              <li>
+                <a href="#activities" class="hover:text-mist transition-colors"
+                  >戶外活動</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <!-- Contact Column -->
+          <div>
+            <h4
+              class="text-sm font-bold tracking-widest uppercase text-sand mb-6"
+            >
+              聯絡
+            </h4>
+            <ul class="space-y-3 text-sm text-mist/70">
+              <li>WhatsApp: +852 9876 5432</li>
+              <li>Phone: +852 9876 5432</li>
+              <li>Email: hello@wildforest.hk</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-mist/10 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-mist/40"
+        >
+          <p>&copy; 2026 野森宿營 Wild Forest Camping. All rights reserved.</p>
+          <div class="flex space-x-4 mt-4 md:mt-0">
+            <a href="#" class="hover:text-mist transition-colors">隱私權政策</a>
+            <a href="#" class="hover:text-mist transition-colors">服務條款</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button (Animated) -->
+    <a
+      href="https://wa.me/85298765432"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl hover:bg-[#20bd5a] transition-all duration-300 animate-float flex items-center justify-center group"
+    >
+      <i class="ph-fill ph-whatsapp-logo text-3xl"></i>
+      <!-- Tooltip -->
+      <span
+        class="absolute right-full mr-4 bg-ink text-mist text-xs py-1.5 px-3 rounded-lg whitespace-nowrap opacity-0 pointer-events-none group-hover:opacity-100 transition-opacity duration-300 shadow-sm hidden md:block"
+      >
+        聯絡我們
+      </span>
+    </a>
+
+    <!-- jQuery 3.7.1 -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  </body>
+</html>
